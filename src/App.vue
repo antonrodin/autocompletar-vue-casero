@@ -1,28 +1,41 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <autocomplete :items="nombres" @selecionado="mostrarSeleccionado"></autocomplete>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Autocomplete from './components/Autocomplete.vue'
 
 export default {
   name: 'App',
+  
   components: {
-    HelloWorld
+    Autocomplete
+  },
+
+  data() {
+
+    return {
+
+      nombres: [
+        'Anton',
+        'Alberto',
+        'Lucia',
+        'Tatnia',
+        'Sergio',
+        'Pedro'
+      ]
+
+    }
+
+  },
+
+  methods: {
+    mostrarSeleccionado(nombre) {
+      console.log(nombre);
+    }
   }
+
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
